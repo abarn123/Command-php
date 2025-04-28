@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheet Lengkap Laravel Artisan (ID)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8fafc;
+        }
+        h1 {
+            color: #ff2d20;
+            text-align: center;
+            border-bottom: 2px solid #ff2d20;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #ff2d20;
+            border-left: 4px solid #ff2d20;
+            padding-left: 10px;
+            margin-top: 40px;
+            background-color: #fff5f5;
+            padding: 10px 15px;
+            border-radius: 0 5px 5px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        }
+        th {
+            background-color: #ff2d20;
+            color: white;
+            text-align: left;
+            padding: 12px 15px;
+            font-weight: 600;
+        }
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+        tr:nth-child(even) {
+            background-color: #fefefe;
+        }
+        tr:hover {
+            background-color: #fff5f5;
+        }
+        code {
+            background-color: #f1f1f1;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #d63384;
+            font-size: 0.95em;
+            white-space: nowrap;
+        }
+        .option {
+            color: #4a5568;
+            font-style: italic;
+            margin-left: 15px;
+            display: block;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #718096;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+        .page-break {
+            page-break-after: always;
+            border-top: 1px dashed #ccc;
+            margin: 40px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cheat Sheet Lengkap Laravel Artisan (Bahasa Indonesia)</h1>
+
+    <h2>Perintah Dasar</h2>
+    <table>
+        <tr>
+            <th>Perintah</th>
+            <th>Deskripsi</th>
+        </tr>
+        <tr>
+            <td><code>php artisan make:policy PostPolicy</code></td>
+            <td>Membuat kelas Policy baru</td>
+        </tr>
+        <tr>
+            <td><code>php artisan --help</code> atau <code>-h</code></td>
+            <td>Menampilkan bantuan untuk perintah tertentu</td>
+        </tr>
+        <tr>
+            <td><code>php artisan --quiet</code> atau <code>-q</code></td>
+            <td>Tidak menampilkan pesan apapun</td>
+        </tr>
+        <tr>
+            <td><code>php artisan --version</code> atau <code>-V</code></td>
+            <td>Menampilkan versi aplikasi</td>
+        </tr>
+        <tr>
+            <td><code>php artisan --no-interaction</code> atau <code>-n</code></td>
+            <td>Tidak menanyakan pertanyaan interaktif</td>
+        </tr>
+        <tr>
+            <td><code>php artisan --ansi</code></td>
+            <td>Memaksa output ANSI</td>
+        </tr>
+        <tr>
+            <td><code>php artisan --no-ansi</code></td>
+            <td>Menonaktifkan output ANSI</td>
+        </tr>
+        <tr>
+            <td><code>php artisan --env</code></td>
+            <td>Menentukan environment untuk menjalankan perintah</td>
+        </tr>
+        <tr>
+            <td><code>php artisan --verbose</code> (<code>-v</code>, <code>-vv</code>, <code>-vvv</code>)</td>
+            <td>Meningkatkan detail pesan: 1 untuk output normal, 2 lebih detail, dan 3 untuk debug</td>
+        </tr>
+        <tr>
+            <td><code>php artisan clear-compiled</code></td>
+            <td>Menghapus file kelas yang dikompilasi</td>
+        </tr>
+        <tr>
+            <td><code>php artisan env</code></td>
+            <td>Menampilkan environment framework saat ini</td>
+        </tr>
+        <tr>
+            <td><code>php artisan help</code></td>
+            <td>Menampilkan bantuan untuk suatu perintah</td>
+        </tr>
+        <tr>
+            <td><code>php artisan list</code></td>
+            <td>Menampilkan daftar perintah</td>
+        </tr>
+        <tr>
+            <td><code>php artisan tinker</code></td>
+            <td>Berinteraksi dengan aplikasi Anda</td>
+        </tr>
+        <tr>
+            <td><code>php artisan down</code></td>
+            <td>Memasukkan aplikasi ke mode maintenance</td>
+        </tr>
+        <tr>
+            <td><code>php artisan up</code></td>
+            <td>Mengeluarkan aplikasi dari mode maintenance</td>
+        </tr>
+    </table>
+
+    <h2>Optimasi & Server</h2>
+    <table>
+        <tr>
+            <th>Perintah</th>
+            <th>Deskripsi</th>
+        </tr>
+        <tr>
+            <td><code>php artisan optimize [--force] [--psr]</code></td>
+            <td>Mengoptimalkan framework untuk performa lebih baik
+                <span class="option">--force: Memaksa file kelas dikompilasi</span>
+                <span class="option">--psr: Tidak mengoptimalkan Composer dump-autoload</span>
+            </td>
+        </tr>
+        <tr>
+            <td><code>php artisan serve</code></td>
+            <td>Menjalankan aplikasi di server pengembangan PHP</td>
+        </tr>
+        <tr>
+            <td><code>php artisan serve --port 8080</code></td>
+            <td>Mengubah port default</td>
+        </tr>
+        <tr>
+            <td><code>php artisan serve --host 0.0.0.0</code></td>
+            <td>Membuatnya bekerja di luar localhost</td>
+        </tr>
+        <tr>
+            <td><code>php artisan app:name namespace</code></td>
+            <td>Mengatur namespace aplikasi</td>
+        </tr>
+    </table>
+
+    <!-- Bagian Cache dan Konfigurasi -->
+    <h2>Cache & Konfigurasi</h2>
+    <table>
+        <tr>
+            <th>Perintah</th>
+            <th>Deskripsi</th>
+        </tr>
+        <tr>
+            <td><code>php artisan auth:clear-resets</code></td>
+            <td>Menghapus token reset password yang kedaluwarsa</td>
+        </tr>
+        <tr>
+            <td><code>php artisan cache:clear</code></td>
+            <td>Membersihkan cache aplikasi</td>
+        </tr>
+        <tr>
+            <td><code>php artisan cache:table</code></td>
+            <td>Membuat migrasi untuk tabel cache database</td>
+        </tr>
+        <tr>
+            <td><code>php artisan config:cache</code></td>
+            <td>Membuat file cache untuk pemuatan konfigurasi yang lebih cepat</td>
+        </tr>
+        <tr>
+            <td><code>php artisan config:clear</code></td>
+            <td>Menghapus file cache konfigurasi</td>
+        </tr>
+    </table>
+
+    <!-- Bagian Database -->
+    <h2>Database</h2>
+    <table>
+        <tr>
+            <th>Perintah</th>
+            <th>Deskripsi</th>
+        </tr>
+        <tr>
+            <td><code>php artisan db:seed [--class[="..."]] [--database[="..."]] [--force]</code></td>
+            <td>Mengisi database dengan data
+                <span class="option">--class: Nama class seeder (default: "DatabaseSeeder")</span>
+                <span class="option">--database: Koneksi database yang akan diisi</span>
+                <span class="option">--force: Memaksa operasi di production</span>
+            </td>
+        </tr>
+        <tr>
+            <td><code>php artisan migrate [--database[="..."]] [--force] [--path[="..."]] [--pretend] [--seed]</code></td>
+            <td>Migrasi database
+                <span class="option">--database: Koneksi database yang digunakan</span>
+                <span class="option">--force: Memaksa operasi di production</span>
+                <span class="option">--path: Path file migrasi</span>
+                <span class="option">--pretend: Hanya tampilkan query SQL</span>
+                <span class="option">--seed: Jalankan seeder setelah migrasi</span>
+            </td>
+        </tr>
+        <tr>
+            <td><code>php artisan migrate:install [--database[="..."]]</code></td>
+            <td>Membuat repositori migrasi</td>
+        </tr>
+        <tr>
+            <td><code>php artisan migrate:refresh [--database[="..."]] [--force] [--seed] [--seeder[="..."]]</code></td>
+            <td>Mereset dan menjalankan ulang semua migrasi
+                <span class="option">--seeder: Nama class seeder</span>
+            </td>
+        </tr>
+        <tr>
+            <td><code>php artisan migrate:reset [--database[="..."]] [--force] [--pretend]</code></td>
+            <td>Rollback semua migrasi database</td>
+        </tr>
+        <tr>
+            <td><code>php artisan migrate:rollback [--database[="..."]] [--force] [--pretend]</code></td>
+            <td>Rollback migrasi terakhir</td>
+        </tr>
+        <tr>
+            <td><code>php artisan migrate:status</code></td>
+            <td>Menampilkan status migrasi (up/down)</td>
+        </tr>
+    </table>
+
+    <!-- Bagian Pembuatan Komponen -->
+    <h2>Pembuatan Komponen</h2>
+    <table>
+        <tr>
+            <th>Perintah</th>
+            <th>Deskripsi</th>
+        </tr>
+        <tr>
+            <td><code>php artisan event:generate</code></td>
+            <td>Membuat event dan handler yang belum ada</td>
+        </tr>
+        <tr>
+            <td><code>php artisan handler:command [-command="..."] name</code></td>
+            <td>Membuat command handler class baru
+                <span class="option">--command: Command class yang ditangani</span>
+            </td>
+        </tr>
+        <tr>
+            <td><code>php artisan handler:event [--event="..."] [--queued] name</code></td>
+            <td>Membuat event handler class baru
+                <span class="option">--event: Event class yang ditangani</span>
+                <span class="option">--queued: Handler harus di-queue</span>
+            </td>
+        </tr>
+        <tr>
+            <td><code>php artisan key:generate</code></td>
+            <td>Mengatur application key</td>
+        </tr>
+        <tr>
+            <td><code>php artisan make:command [-handler] [--queued] name</code></td>
+            <td>Membuat command baru
+                <span class="option">--handler: Generate handler terpisah</span>
+                <span class="option">--queued: Buat command yang di-queue</span>
+            </td>
+        </tr>
+        <tr>
+            <td><code>php artisan make:console [--command[="..."]] name</code></td>
+            <td>Membuat Artisan command baru
+                <span class="option">--command: Nama terminal command (default: "command:name")</span>
+            </td>
+        </tr>
+        <tr>
+            <td><code>php artisan make:controller [--plain] name</code></td>
+            <td>Membuat controller baru
+                <span class="option">--plain: Buat controller kosong</span>
+            </td>
+        </tr>
+        <tr>
+            <td><code>php artisan make:event name</code></td>
+            <td>Membuat event class baru</td>
+        </tr>
+        <tr>
+            <td><code>php artisan make:middleware name</code></td>
+            <td>Membuat middleware class baru</td>
+        </tr>
+        <tr>
+            <td><code>php artisan make:migration [--create[="..."]] [--table[="..."]] name</code></td>
+            <td>Membuat file migrasi
+                <span class="option">--create: Tabel yang akan dibuat</span>
+                <span class="option">--table: Tabel yang akan dimigrasi</span>
+            </td>
+        </tr>
+        <tr>
+            <td><code>php artisan make:model name</code></td>
+            <td>Membuat Eloquent model class</td>
+        </tr>
+        <tr>
+            <td><code>php artisan make:provider name</code></td>
+            <td>Membuat service provider class</td>
+        </tr>
+        <tr>
+            <td><code>php artisan make:request name</code></td>
+            <td>Membuat form request class</td>
+        </tr>
+    </table>
+
+    <!-- Bagian Queue -->
+    <h2>Manajemen Queue</h2>
+    <table>
+        <tr>
+            <th>Perintah</th>
+            <th>Deskripsi</th>
+        </tr>
+        <tr>
+            <td><code>php artisan queue:table</code></td>
+            <td>Membuat migrasi untuk tabel queue jobs</td>
+        </tr>
+        <tr>
+            <td><code>php artisan queue:listen [--queue[="..."]] [--delay[="..."]] [--memory[="..."]] [--timeout[="..."]] [--sleep[="..."]] [--tries[="..."]] [connection]</code></td>
+            <td>Mendengarkan queue tertentu
+                <span class="option">--queue: Queue yang didengarkan</span>
+                <span class="option">--delay: Waktu tunda job gagal (default: 0)</span>
+                <span class="option">--memory: Limit memori (MB, default: 128)</span>
+                <span class="option">--timeout: Timeout (default: 60)</span>
+                <span class="option">--sleep: Waktu tunggu sebelum cek job baru (default: 3)</span>
+                <span class="option">--tries: Percobaan ulang sebelum gagal (default: 0)</span>
+            </td>
+        </tr>
+        <tr>
+            <td><code>php artisan queue:failed</code></td>
+            <td>Daftar semua failed queue jobs</td>
+        </tr>
+        <tr>
+            <td><code>php artisan queue:failed-table</code></td>
+            <td>Membuat migrasi untuk tabel failed queue jobs</td>
+        </tr>
+        <tr>
+            <td><code>php artisan queue:flush</code></td>
+            <td>Menghapus semua failed queue jobs</td>
+        </tr>
+        <tr>
+            <td><code>php artisan queue:forget</code></td>
+            <td>Menghapus failed queue job tertentu</td>
+        </tr>
+        <tr>
+            <td><code>php artisan queue:restart</code></td>
+            <td>Restart queue worker</td>
+        </tr>
+        <tr>
+            <td><code>php artisan queue:retry id</code></td>
+            <td>Mencoba ulang failed queue job (id: ID job)</td>
+        </tr>
+        <tr>
+            <td><code>php artisan queue:work [--queue[="..."]] [--daemon] [--delay[="..."]] [--force] [--memory[="..."]] [--sleep[="..."]] [--tries[="..."]] [connection]</code></td>
+            <td>Memproses job berikutnya
+                <span class="option">--daemon: Run worker dalam mode daemon</span>
+                <span class="option">--force: Jalankan bahkan dalam maintenance mode</span>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Bagian Routing dan Lainnya -->
+    <h2>Routing & Lain-lain</h2>
+    <table>
+        <tr>
+            <th>Perintah</th>
+            <th>Deskripsi</th>
+        </tr>
+        <tr>
+            <td><code>php artisan route:cache</code></td>
+            <td>Membuat cache rute untuk registrasi lebih cepat</td>
+        </tr>
+        <tr>
+            <td><code>php artisan route:clear</code></td>
+            <td>Menghapus cache rute</td>
+        </tr>
+        <tr>
+            <td><code>php artisan route:list</code></td>
+            <td>Menampilkan semua rute terdaftar</td>
+        </tr>
+        <tr>
+            <td><code>php artisan schedule:run</code></td>
+            <td>Menjalankan scheduled commands</td>
+        </tr>
+        <tr>
+            <td><code>php artisan session:table</code></td>
+            <td>Membuat migrasi untuk tabel session</td>
+        </tr>
+        <tr>
+            <td><code>php artisan vendor:publish [--force] [--provider[="..."]] [--tag[="..."]]</code></td>
+            <td>Publish assets dari vendor packages
+                <span class="option">--force: Timpa file yang ada</span>
+                <span class="option">--provider: Service provider yang memiliki assets</span>
+                <span class="option">--tag: Tag yang memiliki assets</span>
+            </td>
+        </tr>
+        <tr>
+            <td><code>php artisan tail [--path[="..."]] [--lines[="..."]] [connection]</code></td>
+            <td>Monitor log aplikasi</td>
+        </tr>
+    </table>
+
+    <div class="footer">
+        <p>Sumber Asli: <a href="https://www.devrohit.com">devrohit.com</a> | Diterjemahkan oleh: [Nama Anda]</p>
+        <p>Dibuat: <script>document.write(new Date().toLocaleDateString())</script></p>
+    </div>
+</body>
+</html>
